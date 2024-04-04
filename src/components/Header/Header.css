@@ -1,0 +1,21 @@
+.header-container {
+    background-color: gainsboro;
+    align-items: center;
+    display: flex;
+}
+
+.nav-menu__items {
+    display: flex;
+}
+
+.nav-menu__item {
+    color: var(--accent-color);
+    margin-right: 32px;
+}
+
+.langButton {
+    width: 70px;
+    height: 40px;
+    font-weight: 700;
+    margin-right: 32px;
+}

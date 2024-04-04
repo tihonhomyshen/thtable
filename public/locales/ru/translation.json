@@ -1,3 +1,9 @@
 {
-    "text": "Какой-то текст"
+    "header": {
+        "table": "Таблица",
+        "bonus": "Бонусы",
+        "questions": "FAQ",
+        "settings": "Настройки",
+        "choose": "Выбрать"
+    }
 }
