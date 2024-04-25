@@ -49,6 +49,7 @@ body {
 }
 
 .button {
+  cursor: pointer;
   border-radius: 9px;
   border: 2px solid var(--button-primary);
 }
