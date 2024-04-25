@@ -4,6 +4,24 @@
         "bonus": "Бонусы",
         "questions": "FAQ",
         "settings": "Настройки",
-        "choose": "Выбрать"
+        "chooseLanguage" : "Выбрать язык"
+    },
+    "options": {
+        "filters": "Фильтры",
+        "currency": "Валюта",
+        "chooseCurrency": "Выбрать валюту",
+        "chooseService": "Выбрать сервис",
+        "firstService": "Первый сервис",
+        "secondService": "Второй сервис",
+        "priceType": "Тип цены",
+        "minPrice": "Мин. цена",
+        "maxPrice": "Макс. цена",
+        "minCount": "Мин. шт.",
+        "maxCount": "Макс. шт."
+    },
+    "priceType": {
+        "casual": "Обычная",
+        "autobuy": "Автобай",
+        "average": "Средняя"
     }
 }

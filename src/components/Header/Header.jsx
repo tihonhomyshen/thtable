@@ -14,10 +14,6 @@ const Header = () => {
         {value: 'en', label: "EN"}
     ]
 
-    const themes = [
-        
-    ]
-
     return (
         <>
             <header>
@@ -31,7 +27,7 @@ const Header = () => {
                             <li className="nav-menu__item"><a href="">{t("header.settings")}</a></li>
                         </ul>
                     </nav>
-                    <Select options={languages} placeholder={t("header.choose")}/>
+                    <Select options={languages} placeholder={t("header.chooseLanguage")}/>
                     <button className="button themeButton">
                         <img src={moon} alt="" />
                     </button>

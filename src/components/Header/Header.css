@@ -19,3 +19,7 @@
     font-weight: 700;
     margin-right: 32px;
 }
+
+.header-container .themeButton {
+    margin-left: 15px;
+}
