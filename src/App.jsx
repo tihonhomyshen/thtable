@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 
 import { useTranslation } from 'react-i18next'
 import BaseOptions from './components/BaseOptions/BaseOptions'
@@ -13,6 +14,7 @@ function App() {
             <Header/>
             <OptionsList/>
             <Table/>
+            <Footer/>
         </>
     )
 }
