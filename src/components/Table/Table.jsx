@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next"
 import './Table.css'
+import Controls from "../Controls/Controls";
 
 export const Table = () => {
     const { t, i18n } = useTranslation()
@@ -21,6 +22,7 @@ export const Table = () => {
     return (
         <>
             <div className="container">
+                <Controls/>
                 <table>
                     <thead>
                         <tr>

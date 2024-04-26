@@ -1,8 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next"
-import "./TableHeader.css"
+import "./Controls.css"
 
-export const Controls = () => {
+const Controls = () => {
     const { t, i18n } = useTranslation()
     return (
         <>
@@ -17,3 +17,5 @@ export const Controls = () => {
     )
 
 }
+
+export default Controls
