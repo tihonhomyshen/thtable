@@ -1,13 +1,22 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-
-import { useTranslation } from 'react-i18next'
-import BaseOptions from './components/BaseOptions/BaseOptions'
+import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import OptionsList from './components/OptionsList/OptionsList'
 import { Table } from './components/Table/Table'
 
 function App() {
+
+    const [data, setData] = useState(null)
+
+    useEffect(() => {
+        fetch('/api')
+        .then(response => response.json())
+        .then(response => setData(response.message))
+    })
+
+    console.log(data)
+
 
     return (
         <>

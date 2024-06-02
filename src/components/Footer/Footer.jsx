@@ -15,8 +15,9 @@ const Footer = () => {
                         <p className="phone">+8950999999</p>
                     </div>
                     <div className="links">
-                        <a href="#"><img src={profile} alt="" /></a>
-                        <a href="#"><img src={tg} alt="" /></a>
+                        <a target="_blank" href="https://github.com/tihonhomyshen"><img src={profile} alt="" /></a>
+                        <a target="_blank"
+                            href="https://t.me/tishkinn"><img src={tg} alt="" /></a>
                         <a href="#"><img src={docs} alt="" /></a>
                     </div>
                 </div>

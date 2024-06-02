@@ -1,7 +1,7 @@
 {
     "header": {
         "table": "Таблица",
-        "bonus": "Бонусы",
+        "profile": "Профиль",
         "questions": "FAQ",
         "settings": "Настройки",
         "chooseLanguage" : "Выбрать язык"

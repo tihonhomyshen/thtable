@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Select from 'react-select'
 import { useTranslation } from "react-i18next"
 import "./BaseOptions.css"
@@ -16,7 +16,7 @@ const BaseOptions = () => {
         { value: 'rub', label: 'RUB' }
     ]
 
-    return (
+    return (    
         <>
             <div className="base-options">
                 <div className="filter">
