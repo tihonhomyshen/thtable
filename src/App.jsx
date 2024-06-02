@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer'
 import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import OptionsList from './components/OptionsList/OptionsList'
 import { Table } from './components/Table/Table'
+import ProfilePage from './pages/ProfilePage/ProfilePage'
 
 function App() {
 
@@ -24,6 +25,10 @@ function App() {
             <OptionsList/>
             <Table/>
             <Footer/>
+            <Routes>
+                <Route path='profile' element={<ProfilePage/>}/>
+                <Route path='faq' element={/>
+            </Routes>
         </>
     )
 }
