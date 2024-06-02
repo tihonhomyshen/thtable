@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProfilePage = () => {
+const BonusPage = () => {
     return (
         <>
 
@@ -8,4 +8,4 @@ const ProfilePage = () => {
     )
 }
 
-export default ProfilePage;
+export default BonusPage;

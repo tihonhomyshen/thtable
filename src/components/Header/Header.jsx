@@ -6,6 +6,7 @@ import steam from '../../assets/icons/steam.svg'
 import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
 import './Header.css'
+import FAQPage from "../../pages/FAQPage/FAQPage"
 
 
 const Header = () => {
@@ -21,11 +22,12 @@ const Header = () => {
                 <div className="container header-container">
                     <nav className="nav-menu">
                         <ul className="nav-menu__items">
-                            <li className="nav-menu__item logo"><a href=""><img src={logo} alt="" /></a></li>
-                            <li className="nav-menu__item"><a href="">{t("header.table")}</a></li>
-                            <li className="nav-menu__item"><a href="">{t("header.profile")}</a></li>
-                            <li className="nav-menu__item"><a href="">{t("header.questions")}</a></li>
-                            <li className="nav-menu__item"><a href="">{t("header.settings")}</a></li>
+                            <li className="nav-menu__item logo"><Link to={"/"}><img src={logo} alt="" /></Link></li>
+                            <li className="nav-menu__item"><Link to={"/"}>{t("header.table")}</Link></li>
+                            <li className="nav-menu__item"><Link to={"bonus"}>{t("header.bonus")}</Link></li>
+                            <li className="nav-menu__item"><Link to={"faq"}>{t("header.questions")}</Link></li>
+                            <li className="nav-menu__item"><Link to={"settings"}>{t("header.settings")}</Link></li>
+                            <li className="nav-menu__item"><Link to={"help"}>{t("header.support")}</Link></li>
                         </ul>
                     </nav>
                     <div className="header-buttons">

@@ -4,31 +4,21 @@ import Footer from './components/Footer/Footer'
 import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import OptionsList from './components/OptionsList/OptionsList'
 import { Table } from './components/Table/Table'
-import ProfilePage from './pages/ProfilePage/ProfilePage'
+import BonusPage from './pages/BonusPage/BonusPage'
+import FAQPage from './pages/FAQPage/FAQPage'
+import MainPage from './pages/MainPage/MainPage'
 
 function App() {
-
-    const [data, setData] = useState(null)
-
-    useEffect(() => {
-        fetch('/api')
-        .then(response => response.json())
-        .then(response => setData(response.message))
-    })
-
-    console.log(data)
-
 
     return (
         <>
             <Header/>
-            <OptionsList/>
-            <Table/>
-            <Footer/>
             <Routes>
-                <Route path='profile' element={<ProfilePage/>}/>
-                <Route path='faq' element={/>
+                <Route path='/' element={<MainPage/>}/>
+                <Route path='/profile' element={<BonusPage/>}/>
+                <Route path='/faq' element={<FAQPage/>}/>
             </Routes>
+            <Footer/>
         </>
     )
 }

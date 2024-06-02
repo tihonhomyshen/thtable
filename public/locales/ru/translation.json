@@ -1,10 +1,11 @@
 {
     "header": {
         "table": "Таблица",
-        "profile": "Профиль",
+        "bonus": "Бонусы",
         "questions": "FAQ",
         "settings": "Настройки",
-        "chooseLanguage" : "Выбрать язык"
+        "chooseLanguage" : "Выбрать язык",
+        "support": "Поддержка"
     },
     "options": {
         "filters": "Фильтры",
