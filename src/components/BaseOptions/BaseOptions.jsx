@@ -9,12 +9,15 @@ const BaseOptions = () => {
 
     const filters = []
 
+    const [currentCurrency, setCurrentCurrency] = useState('')
+
     const currencies = [
         { value: 'usd', label: 'USD' },
         { value: 'eur', label: 'EUR' },
         { value: 'cny', label: 'CNY' },
         { value: 'rub', label: 'RUB' }
     ]
+    console.log(currentCurrency);
 
     return (    
         <>
@@ -23,7 +26,7 @@ const BaseOptions = () => {
                     <Select options={filters} placeholder={t("options.filters")}/>
                 </div>
                 <div className="currency">
-                    <Select options={currencies} placeholder={t("options.currency")} />
+                    <Select onChange={(e) => setCurrentCurrency(e.value)} options={currencies} placeholder={t("options.currency")} />
                 </div>
             </div>
         </>
