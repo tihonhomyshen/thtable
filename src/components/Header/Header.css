@@ -1,0 +1,45 @@
+.header-container {
+    background-color: gainsboro;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+}
+
+.logo img {
+    height: 30px;
+}
+
+.nav-menu__items {
+    display: flex;
+    align-items: center;
+}
+
+ul {
+    padding-inline-start: 0px;
+}
+
+.nav-menu__item {
+    color: var(--accent-color);
+    margin-right: 32px;
+}
+
+.langButton {
+    width: 70px;
+    height: 40px;
+    font-weight: 700;
+    margin-right: 32px;
+}
+
+.header-container .themeButton {
+}
+
+.authButton img{
+    width: 100px;
+    height: 35px;
+}
+
+.header-buttons{
+    display: flex;
+    gap: 15px;
+}

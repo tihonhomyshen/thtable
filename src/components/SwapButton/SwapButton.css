@@ -1,0 +1,11 @@
+.swapButton .button {
+    width: 50px;
+    height: 35px;
+    border: 2px solid red;
+}
+
+.swapButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

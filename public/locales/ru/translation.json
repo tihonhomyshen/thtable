@@ -1,0 +1,40 @@
+{
+    "header": {
+        "table": "Таблица",
+        "bonus": "Бонусы",
+        "questions": "FAQ",
+        "settings": "Настройки",
+        "chooseLanguage" : "Выбрать язык",
+        "support": "Поддержка"
+    },
+    "options": {
+        "filters": "Фильтры",
+        "currency": "Валюта",
+        "chooseCurrency": "Выбрать валюту",
+        "chooseService": "Выбрать сервис",
+        "firstService": "Первый сервис",
+        "secondService": "Второй сервис",
+        "priceType": "Тип цены",
+        "minPrice": "Мин. цена",
+        "maxPrice": "Макс. цена",
+        "minCount": "Мин. шт.",
+        "maxCount": "Макс. шт."
+    },
+    "priceType": {
+        "casual": "Обычная",
+        "autobuy": "Автобай",
+        "average": "Средняя"
+    },
+    "table": {
+        "lastUpdate": "Последнее обновление",
+        "search": "Поиск",
+        "update": "Обновить",
+        "name": "Название",
+        "sales1": "Продажи 1",
+        "price1": "Цена 1",
+        "price2": "Цена 2",
+        "income": "Прибыль, %",
+        "count1": "Кол-во 1",
+        "count2": "Кол-во 2"
+    }
+}
