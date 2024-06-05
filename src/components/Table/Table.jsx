@@ -40,6 +40,7 @@ export const Table = () => {
     const rows = useMemo(() => {
         const result = [];
         data?.forEach((i) => {
+            // if (!data1?.some(item => item.name === i.name)) return
             result.push({
                 name: i.name,
                 sales1: Number(i.sales),
@@ -54,9 +55,9 @@ export const Table = () => {
         data1?.forEach((i) => {
             const existingItem = result.find((item) => item.name === i.name);
             if (existingItem) {
-                const income = (existingItem.price1 - existingItem.price2) / existingItem.price2 * 100
                 existingItem.count2 = i.count;
                 existingItem.price2 = i.price; 
+                const income = (existingItem.price1 - existingItem.price2) / existingItem.price2 * 100
                 existingItem.income = Math.round(income * 10) / 10
             } else {
                 result.push (
