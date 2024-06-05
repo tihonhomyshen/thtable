@@ -1,32 +1,46 @@
 import React, { useState } from 'react'
-import Select from 'react-select'
 import { useTranslation } from "react-i18next"
+import { MenuItem, Select, TextField } from '@mui/material'
 import "./BaseOptions.css"
 
 const BaseOptions = () => {
 
     const { t, i18n } = useTranslation()
 
-    const filters = []
-
     const [currentCurrency, setCurrentCurrency] = useState('')
+    const [filter, setFilter] = useState('')
+
+    const filters = [
+        { label: 'Knife' },
+        { label: 'Agents' }
+    ]
 
     const currencies = [
-        { value: 'usd', label: 'USD' },
-        { value: 'eur', label: 'EUR' },
-        { value: 'cny', label: 'CNY' },
-        { value: 'rub', label: 'RUB' }
+        { label: 'USD' },
+        { label: 'EUR' },
+        { label: 'CNY' },
+        { label: 'RUB' }
     ]
     console.log(currentCurrency);
 
-    return (    
+    return (
         <>
             <div className="base-options">
                 <div className="filter">
-                    <Select options={filters} placeholder={t("options.filters")}/>
+                    <p>{t("options.filters")}</p>
+                    <TextField sx={{ minWidth: 100 }} select onChange={(e) => setFilter(e.target.value)} value={filter} >
+                        {filters.map(i =>
+                            <MenuItem value={i.label}>{i.label}</MenuItem>
+                        )}
+                    </TextField>
                 </div>
                 <div className="currency">
-                    <Select onChange={(e) => setCurrentCurrency(e.value)} options={currencies} placeholder={t("options.currency")} />
+                    <p>{t("options.currency")}</p>
+                    <TextField sx={{ minWidth: 100 }} select onChange={(e) => setCurrentCurrency(e.target.value)} value={currentCurrency}>
+                        {currencies.map(i =>
+                            <MenuItem value={i.label}>{i.label}</MenuItem>
+                        )}
+                    </TextField>
                 </div>
             </div>
         </>

@@ -1,6 +1,5 @@
 import React from 'react'
 import { useTranslation } from "react-i18next"
-import Select from 'react-select'
 import "./ServiceOptions.css"
 
 const ServiceOptions = (props) => {
@@ -22,11 +21,11 @@ const ServiceOptions = (props) => {
             <div className="service-options">
                 <div className="service">
                     <p>{props.service}</p>
-                    <Select options={services} placeholder={t("options.chooseService")} className='chooseService' />
+                    {/* <Select options={services} placeholder={t("options.chooseService")} className='chooseService' /> */}
                 </div>
                 <div className="price-type">
                     <p>{t("options.priceType")}</p>
-                    <Select options={priceTypes} placeholder={t("options.priceType")} />
+                    {/* <Select options={priceTypes} placeholder={t("options.priceType")} /> */}
                 </div>
             </div>
             <div className="input-options">

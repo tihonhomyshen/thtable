@@ -1,5 +1,4 @@
 import React from "react"
-import Select from 'react-select'
 import logo from '../../assets/icons/logo.svg'
 import moon from '../../assets/icons/moon.svg'
 import steam from '../../assets/icons/steam.svg'
@@ -31,7 +30,7 @@ const Header = () => {
                         </ul>
                     </nav>
                     <div className="header-buttons">
-                        <Select options={languages} placeholder={t("header.chooseLanguage")} />
+                        {/* <Select options={languages} placeholder={t("header.chooseLanguage")} /> */}
                         <button className="button themeButton">
                             <img src={moon} alt="" />
                         </button>

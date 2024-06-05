@@ -2,31 +2,47 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next"
 import './Table.css'
 import Controls from "../Controls/Controls";
+import useApi from "../../hooks/useApi";
+import { getItemsTM} from "../../services/getItemsTM";
+import { getItemsSkinport } from "../../services/getItemsSkinport";
+import { API } from "../../constants/API";
+import { DataGrid } from "@mui/x-data-grid";
+
 
 
 export const Table = () => {
     const { t, i18n } = useTranslation()
 
-    const [items, setItems] = useState([])
+    const {data, loading, error, fetchData, switchApi} = useApi(getItemsTM);
 
-    const [items1, setItems1] = useState([])
+    const {data:data1, loading:loading1, error:error1, fetchData:fetchData1, switchApi:switchApi1} = useApi(getItemsSkinport);
 
     useEffect(() => {
-        fetch("https://market.csgo.com/api/v2/prices/USD.json")
-            .then(response => response.json())
-            .then(json => setItems(json.items.slice(0, 500)))
-        fetch("https://api.skinport.com/v1/items/")
-            .then(response => response.json())
-            .then(json => setItems1(json.slice(0,500)))
+        fetchData("USD");
+        fetchData1("USD");
     }, [])
+
+    const columns = [
+        { field: 'name', headerName: t("table.name"), width: 300},
+        { field: 'sales1', headerName: t("table.sales1"), width: 150 },
+        { field: 'price1', headerName: t("table.price1"), width: 150 },
+        { field: 'price2', headerName: t("table.price2"), width: 150 },
+        { field: 'income', headerName: t("table.income"), width: 150 },
+        { field: 'count1', headerName: t("table.count1"), width: 150 },
+        { field: 'count2', headerName: t("table.count2"), width: 150 },
+    ]
+    
+    const handleSwitchApi = (newApi) => {
+        switchApi(newApi);
+        fetchData();
+      };
 
     const rows = useMemo(() => {
         const result = [];
-
-        items.forEach((i) => {
+        data?.forEach((i) => {
             result.push({
-                name: i.market_hash_name,
-                sales1: Number(i.volume),
+                name: i.name,
+                sales1: Number(i.sales),
                 price1: Number(i.price),
                 price2: null,
                 income: null,
@@ -35,61 +51,35 @@ export const Table = () => {
             });
         });
 
-        items1.forEach((i) => {
-            const existingItem = result.find((item) => item.name === i.market_hash_name);
+        data1?.forEach((i) => {
+            const existingItem = result.find((item) => item.name === i.name);
             if (existingItem) {
-                existingItem.count2 = i.quantity;
-                existingItem.price2 = i.min_price; 
-                existingItem.income = (existingItem.price1 - existingItem.price2) / existingItem.price2 * 100
+                const income = (existingItem.price1 - existingItem.price2) / existingItem.price2 * 100
+                existingItem.count2 = i.count;
+                existingItem.price2 = i.price; 
+                existingItem.income = Math.round(income * 10) / 10
             } else {
                 result.push (
                     {
-                        name: i.market_hash_name,
+                        name: i.name,
                         sales1: null,
                         price1: null,
-                        price2: i.min_price,
+                        price2: i.price,
                         income: null,
                         count1: null,
-                        count2: i.quantity,
+                        count2: i.count,
                     }
                 )
             }
         });
         return result;
-    }, [items, items1])
+    }, [data, data1])
 
     return (
         <>
             <div className="container">
                 <Controls />
-                <table>
-                    <thead>
-                        <tr>
-                            <th>{t("table.name")}</th>
-                            <th>{t("table.sales1")}</th>
-                            <th>{t("table.price1")}</th>
-                            <th>{t("table.price2")}</th>
-                            <th>{t("table.income")}</th>
-                            <th>{t("table.count1")}</th>
-                            <th>{t("table.count2")}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {rows.map(item => {
-                            return (
-                                <tr className="item">
-                                    <td>{item.name}</td>
-                                    <td>{item.sales1}</td>
-                                    <td>{item.price1}</td>
-                                    <td>{item.price2}</td>
-                                    <td>{item.income?.toFixed(2)}</td>
-                                    <td>{item.count1}</td>
-                                    <td>{item.count2}</td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
+                <DataGrid disableColumnResize columns={columns} rows={rows} getRowId={rows => rows.name}/>
             </div>
         </>
     )
