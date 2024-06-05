@@ -12,8 +12,9 @@ const BaseOptions = () => {
     const [filter, setFilter] = useState('')
 
     const filters = [
-        { label: 'Knife' },
-        { label: 'Agents' }
+        { label: 'Autographs' },
+        { label: 'Agents' },
+        { label: 'Knives'}
     ]
 
     const currencies = [

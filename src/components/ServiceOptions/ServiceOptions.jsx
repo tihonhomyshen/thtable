@@ -15,7 +15,7 @@ const ServiceOptions = (props) => {
     const [priceType, setpriceType] = useState('')
 
     const services = [
-        { label: "Steam" },
+        { label: "Skinport" },
         { label: "TM" }
     ]
 
@@ -30,7 +30,7 @@ const ServiceOptions = (props) => {
             <div className="service-options">
                 <div className="service">
                     <p>{props.service}</p>
-                    <TextField sx={{ minWidth: 100 }} size='small' select onChange={(e) => setService(e.target.value)} value={service} >
+                    <TextField sx={{ minWidth: 100 }} size='small' select defaultValue={services[0]} onChange={(e) => setService(e.target.value)} value={service} >
                         {services.map(i =>
                             <MenuItem value={i.label}>{i.label}</MenuItem>
                         )}
