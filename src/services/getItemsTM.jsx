@@ -7,7 +7,7 @@ export const getItemsTM = async (currency) => {
     console.log(currency)
     const response = await axios.get(`${API.TM}${currency}.json`)
     
-    const data = response.data.items.map(i => {
+    const data = response.data.items.slice(0, 1000).map(i => {
         return {
             name: i.market_hash_name,
             count: null,

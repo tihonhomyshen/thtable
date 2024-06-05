@@ -6,7 +6,7 @@ export const getItemsSkinport = async (currency) => {
     
     const response = await axios.get(`${API.SKINPORT}`, {params: {currency}})
     
-    const data = response.data.map(i => {
+    const data = response.data.slice(0, 1000).map(i => {
         return {
             name: i.market_hash_name,
             sales: null,

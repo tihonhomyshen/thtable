@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { useTranslation } from "react-i18next"
 import "./ServiceOptions.css"
+import { TextField, MenuItem } from '@mui/material'
+import { FilterContext } from '../../pages/MainPage/MainPage'
 
 const ServiceOptions = (props) => {
     const { t, i18n } = useTranslation()
 
+
+    const { currentCurrency, setCurrentCurrency } = useContext(FilterContext)
+
+    const [service, setService] = useState('')
+
+    const [priceType, setpriceType] = useState('')
+
     const services = [
-        { value: "steam", label: "Steam" },
-        { value: "csgomarket", label: "TM" },
+        { label: "Steam" },
+        { label: "TM" }
     ]
 
     const priceTypes = [
@@ -21,11 +30,19 @@ const ServiceOptions = (props) => {
             <div className="service-options">
                 <div className="service">
                     <p>{props.service}</p>
-                    {/* <Select options={services} placeholder={t("options.chooseService")} className='chooseService' /> */}
+                    <TextField sx={{ minWidth: 100 }} size='small' select onChange={(e) => setService(e.target.value)} value={service} >
+                        {services.map(i =>
+                            <MenuItem value={i.label}>{i.label}</MenuItem>
+                        )}
+                    </TextField>
                 </div>
                 <div className="price-type">
                     <p>{t("options.priceType")}</p>
-                    {/* <Select options={priceTypes} placeholder={t("options.priceType")} /> */}
+                    <TextField sx={{ minWidth: 100 }} size='small' select onChange={(e) => setpriceType(e.target.value)} value={priceType} >
+                        {priceTypes.map(i =>
+                            <MenuItem value={i.label}>{i.label}</MenuItem>
+                        )}
+                    </TextField>
                 </div>
             </div>
             <div className="input-options">

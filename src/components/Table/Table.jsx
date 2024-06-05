@@ -7,6 +7,9 @@ import { getItemsTM} from "../../services/getItemsTM";
 import { getItemsSkinport } from "../../services/getItemsSkinport";
 import { API } from "../../constants/API";
 import { DataGrid } from "@mui/x-data-grid";
+import { useContext } from "react";
+import { FilterContext } from "../../pages/MainPage/MainPage";
+import { DataGridLocale } from "../../constants/DataGridLocale";
 
 
 
@@ -17,10 +20,12 @@ export const Table = () => {
 
     const {data:data1, loading:loading1, error:error1, fetchData:fetchData1, switchApi:switchApi1} = useApi(getItemsSkinport);
 
+    const {currentCurrency, setCurrentCurrency} = useContext(FilterContext)
+
     useEffect(() => {
-        fetchData("USD");
-        fetchData1("USD");
-    }, [])
+        fetchData(currentCurrency);
+        fetchData1(currentCurrency);
+    }, [currentCurrency])
 
     const columns = [
         { field: 'name', headerName: t("table.name"), width: 300},
@@ -80,7 +85,7 @@ export const Table = () => {
         <>
             <div className="container">
                 <Controls />
-                <DataGrid disableColumnResize columns={columns} rows={rows} getRowId={rows => rows.name}/>
+                <DataGrid localeText={DataGridLocale} initialState={{pagination: {paginationModel: {pageSize: 20}}}} disableColumnResize columns={columns} rows={rows} getRowId={rows => rows.name}/>
             </div>
         </>
     )
