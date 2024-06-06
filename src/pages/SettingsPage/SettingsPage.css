@@ -1,1 +1,16 @@
-                                                                                                                                                                                                                                                                                                                                                                    
+.settings__container {
+    display: flex;
+    gap: 15px;
+}
+
+.settings__container .service {
+    text-align: center;
+}
+
+.service input {
+    text-align: center;
+    border-radius: 6px;
+    border: 2px solid var(--accent-color);
+    outline: none;
+    
+}

@@ -22,9 +22,41 @@ li {
 
 body {
   box-sizing: border-box;
+  transition: 0.4s all ease-in-out;
+  color: var(--accent-color);
+  background-color: #ffffff;
   padding: 0;
   margin: 0;
 }
+
+.default {
+  background-color: #ffffff;
+  color: var(--accent-color);
+}
+
+.white {
+  color: white;
+}
+
+.accent {
+  color: #4D4DB4;
+}
+
+.pink{
+  background-color: #f0b6b6;
+  color: white;
+}
+
+.lightblue {
+  background-color: #81d4fa;
+  color: var(--accent-color);
+}
+
+.lightgreen {
+  color: white;
+  background-color: #a5d6a7;
+}
+
 
 :root {
   font-family: "Lato", sans-serif;
@@ -35,6 +67,9 @@ body {
   --accent-color: #4D4DB4;
   --button-primary: #3343EC;
   --button-secondary: #9B9AE3;
+
+
+  --background-body: #323442;
 
   --fs-300: 0.75rem;
   --fs-400: 0.875rem;

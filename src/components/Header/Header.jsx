@@ -5,16 +5,47 @@ import steam from '../../assets/icons/steam.svg'
 import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
 import './Header.css'
-import FAQPage from "../../pages/FAQPage/FAQPage"
+import { useState } from "react"
+import { TextField, MenuItem } from "@mui/material"
+import i18next, { changeLanguage } from "i18next"
+import { useEffect } from "react"
 
 
 const Header = () => {
     const { t, i18n } = useTranslation()
+
+    const [language, setLanguage] = useState('')
+
     const languages = [
-        { value: 'ru', label: 'RU' },
-        { value: 'en', label: "EN" }
+        { label: 'RU' },
+        { label: "EN" }
     ]
 
+
+    const storedTheme = localStorage.getItem("theme")
+    useEffect(() => {
+        if (storedTheme) {
+            setTheme(storedTheme)
+            handleTheme(storedTheme);
+        }
+    }, [])
+
+    const [theme, setTheme] = useState("default")
+
+    const themes = [
+        { label: t("themes.default"), value: "default" },
+        { label: t("themes.pink"), value: "pink" },
+        { label: t("themes.lightblue"), value: "lightblue" },
+        { label: t("themes.lightgreen"), value: "lightgreen" }
+
+    ]
+
+    const handleTheme = (theme) => {
+        document.body.classList = ''
+        document.body.classList.add(theme)
+
+        localStorage.setItem("theme", theme);
+    }
     return (
         <>
             <header>
@@ -30,10 +61,16 @@ const Header = () => {
                         </ul>
                     </nav>
                     <div className="header-buttons">
-                        {/* <Select options={languages} placeholder={t("header.chooseLanguage")} /> */}
-                        <button className="button themeButton">
-                            <img src={moon} alt="" />
-                        </button>
+                        <TextField sx={{ minWidth: 100 }} size='small' select onChange={(e) => { setTheme(e.target.value); handleTheme(e.target.value); }} value={theme} >
+                            {themes.map(i =>
+                                <MenuItem value={i.value}>{i.label}</MenuItem>
+                            )}
+                        </TextField>
+                        <TextField sx={{ minWidth: 100 }} size='small' select onChange={(e) => { i18next.changeLanguage(e.target.value.toLowerCase()); setLanguage(e.target.value) }} value={language} >
+                            {languages.map(i =>
+                                <MenuItem value={i.label}>{i.label}</MenuItem>
+                            )}
+                        </TextField>
                         <button className="button authButton">
                             <img src={steam} alt="" />
                         </button>
@@ -43,5 +80,6 @@ const Header = () => {
         </>
     )
 }
+
 
 export default Header
