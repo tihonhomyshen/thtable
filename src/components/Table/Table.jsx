@@ -1,12 +1,11 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next"
 import './Table.css'
-import Controls from "../Controls/Controls";
 import useApi from "../../hooks/useApi";
 import { getItemsTM} from "../../services/getItemsTM";
 import { getItemsSkinport } from "../../services/getItemsSkinport";
 import { API } from "../../constants/API";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid} from "@mui/x-data-grid";
 import { useContext } from "react";
 import { FilterContext } from "../../pages/MainPage/MainPage";
 import { DataGridLocale } from "../../constants/DataGridLocale";
@@ -22,6 +21,7 @@ export const Table = () => {
 
     const {currentCurrency, setCurrentCurrency} = useContext(FilterContext)
 
+    
     useEffect(() => {
         fetchData(currentCurrency);
         fetchData1(currentCurrency);
@@ -45,7 +45,6 @@ export const Table = () => {
     const rows = useMemo(() => {
         const result = [];
         data?.forEach((i) => {
-            // if (!data1?.some(item => item.name === i.name)) return
             result.push({
                 name: i.name,
                 sales1: Number(i.sales),
@@ -84,7 +83,6 @@ export const Table = () => {
     return (
         <>
             <div className="container">
-                <Controls />
                 <DataGrid localeText={DataGridLocale} initialState={{pagination: {paginationModel: {pageSize: 20}}}} disableColumnResize columns={columns} rows={rows} getRowId={rows => rows.name}/>
             </div>
         </>

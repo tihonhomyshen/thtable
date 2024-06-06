@@ -1,3 +1,49 @@
 {
-    
+    "header": {
+        "table": "Table",
+        "bonus": "Bonus",
+        "questions": "FAQ",
+        "settings": "Settings",
+        "chooseLanguage" : "Choose language",
+        "support": "Support"
+    },
+    "options": {
+        "filters": "Item type",
+        "currency": "Currency",
+        "chooseCurrency": "Choose currency",
+        "chooseService": "Choose service",
+        "firstService": "First service",
+        "secondService": "Second service",
+        "priceType": "Price type",
+        "minPrice": "Min. price",
+        "maxPrice": "Max. price",
+        "minCount": "Min. count.",
+        "maxCount": "Max. count"
+    },
+    "priceType": {
+        "casual": "Common",
+        "autobuy": "Autobuy",
+        "average": "Average"
+    },
+    "table": {
+        "name": "Name",
+        "sales1": "Sales 1",
+        "price1": "Price 1",
+        "price2": "Price 2",
+        "income": "Income, %",
+        "count1": "Count 1",
+        "count2": "Count 2"
+    },
+    "itemsTypes": {
+        "autographs": "Autographs",
+        "agents": "Agents",
+        "knives": "Knives",
+        "capsules": "Capsules"
+    },
+    "themes": {
+        "default": "Classic",
+        "pink": "Pink",
+        "lightblue": "Lightblue",
+        "lightgreen": "Lightgreen"
+    }
 }
