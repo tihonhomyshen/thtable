@@ -45,5 +45,20 @@
         "pink": "Pink",
         "lightblue": "Lightblue",
         "lightgreen": "Lightgreen"
+    },
+    "faq": {
+        "question1": "How to set up the table?",
+        "text": "In order to make our table convenient to use, you need to customize it for yourself.",
+        "subtitle1": "Select services to compare.",
+        "text2": "Services: Platforms (Steam, Skinport, TM).",
+        "example": "Example: if you want to withdraw an item from Steam and sell it profitably on TM, then choose Steam as the first service, and TM as the second.",
+        "chooseFilters": "Choose the necessary filters.",
+        "afterFilters": "After selecting the filters, you need to click the “Update” button above the table on the right for the changes to take effect.",
+        "chooseCurrency": "Select currency.",
+        "possibleCurrency": "Possible currencies: USD, EUR, RUB.",
+        "display": "What does our table show?",
+        "prices": "The price of the item on the first and second services.",
+        "income": "The profit you will receive if you buy an item on the first service and sell it on the second.",
+        "sort": "There is a sort by number of sales, price of the first or second services, profit, number of items."
     }
 }
