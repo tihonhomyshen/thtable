@@ -60,5 +60,6 @@
         "prices": "The price of the item on the first and second services.",
         "income": "The profit you will receive if you buy an item on the first service and sell it on the second.",
         "sort": "There is a sort by number of sales, price of the first or second services, profit, number of items."
-    }
+    },
+    "help": "Contact us"
 }

@@ -2,15 +2,12 @@ import React, { useContext, useState } from 'react'
 import { useTranslation } from "react-i18next"
 import "./ServiceOptions.css"
 import { TextField, MenuItem } from '@mui/material'
-import { FilterContext } from '../../pages/MainPage/MainPage'
+import { FilterContext, ServiceContext } from '../../pages/MainPage/MainPage'
 
 const ServiceOptions = (props) => {
     const { t, i18n } = useTranslation()
 
-
-    const { currentCurrency, setCurrentCurrency } = useContext(FilterContext)
-
-    const [service, setService] = useState('')
+    const { service, setService} = useContext(ServiceContext)
 
     const [priceType, setpriceType] = useState('')
 

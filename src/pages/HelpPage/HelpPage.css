@@ -1,0 +1,12 @@
+.support-block {
+    display: flex;
+    gap: 10px;
+}
+
+.email {
+    cursor: pointer;
+}
+
+.support-block img {
+    width: 200px;
+}
