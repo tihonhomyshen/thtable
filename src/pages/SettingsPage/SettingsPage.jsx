@@ -10,11 +10,11 @@ export const SettingsPage = () => {
                 <div className="service">
                     <div className="upper-row">
                         <img src="" alt="" />
-                        <h2 className="service-title">Steam</h2>
+                        <h2 className="service-title">TM</h2>
                     </div>
                     <div className="lower-row">
                         <p>{t("settings.comission")}</p>
-                        <input type="text" placeholder="13" disabled />
+                        <input type="text" placeholder="5" disabled />
                         <p>{t("settings.bonus")}</p>
                         <input type="text" placeholder="0" />
                     </div>

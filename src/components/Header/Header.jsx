@@ -54,7 +54,6 @@ const Header = () => {
                         <ul className="nav-menu__items">
                             <li className="nav-menu__item logo"><Link to={"/"}><img src={logo} alt="" /></Link></li>
                             <li className="nav-menu__item"><Link to={"/"}>{t("header.table")}</Link></li>
-                            <li className="nav-menu__item"><Link to={"bonus"}>{t("header.bonus")}</Link></li>
                             <li className="nav-menu__item"><Link to={"faq"}>{t("header.questions")}</Link></li>
                             <li className="nav-menu__item"><Link to={"settings"}>{t("header.settings")}</Link></li>
                             <li className="nav-menu__item"><Link to={"help"}>{t("header.support")}</Link></li>
@@ -71,9 +70,6 @@ const Header = () => {
                                 <MenuItem value={i.label}>{i.label}</MenuItem>
                             )}
                         </TextField>
-                        <button className="button authButton">
-                            <img src={steam} alt="" />
-                        </button>
                     </div>
                 </div>
             </header>
