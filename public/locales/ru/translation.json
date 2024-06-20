@@ -32,7 +32,8 @@
         "price2": "Цена 2",
         "income": "Прибыль, %",
         "count1": "Кол-во 1",
-        "count2": "Кол-во 2"
+        "count2": "Кол-во 2",
+        "notFound": "Нет информации"
     },
     "itemsTypes": {
         "autographs": "Автографы",
