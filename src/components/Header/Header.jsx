@@ -1,28 +1,32 @@
-import React from "react"
 import logo from '../../assets/icons/logo.svg'
-import moon from '../../assets/icons/moon.svg'
-import steam from '../../assets/icons/steam.svg'
 import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
 import './Header.css'
 import { useState } from "react"
-import { TextField, MenuItem } from "@mui/material"
-import i18next, { changeLanguage } from "i18next"
+import i18next from "i18next"
 import { useEffect } from "react"
+import { Select } from "../Select"
 
+
+const languages = [
+    { label: 'RU' },
+    { label: "EN" }
+]
 
 const Header = () => {
-    const { t, i18n } = useTranslation()
+    const { t } = useTranslation()
 
-    const [language, setLanguage] = useState('')
-
-    const languages = [
-        { label: 'RU' },
-        { label: "EN" }
+    const themes = [
+        { label: t("themes.default"), value: "default" },
+        { label: t("themes.pink"), value: "pink" },
+        { label: t("themes.lightblue"), value: "lightblue" },
+        { label: t("themes.lightgreen"), value: "lightgreen" }
     ]
 
-
+    const [language, setLanguage] = useState('RU')
+    const [theme, setTheme] = useState(t("themes.default"))
     const storedTheme = localStorage.getItem("theme")
+
     useEffect(() => {
         if (storedTheme) {
             setTheme(storedTheme)
@@ -30,22 +34,13 @@ const Header = () => {
         }
     }, [])
 
-    const [theme, setTheme] = useState("default")
-
-    const themes = [
-        { label: t("themes.default"), value: "default" },
-        { label: t("themes.pink"), value: "pink" },
-        { label: t("themes.lightblue"), value: "lightblue" },
-        { label: t("themes.lightgreen"), value: "lightgreen" }
-
-    ]
-
     const handleTheme = (theme) => {
         document.body.classList = ''
         document.body.classList.add(theme)
 
         localStorage.setItem("theme", theme);
     }
+
     return (
         <>
             <header>
@@ -60,22 +55,13 @@ const Header = () => {
                         </ul>
                     </nav>
                     <div className="header-buttons">
-                        <TextField sx={{ minWidth: 100 }} size='small' select onChange={(e) => { setTheme(e.target.value); handleTheme(e.target.value); }} value={theme} >
-                            {themes.map(i =>
-                                <MenuItem value={i.value}>{i.label}</MenuItem>
-                            )}
-                        </TextField>
-                        <TextField sx={{ minWidth: 100 }} size='small' select onChange={(e) => { i18next.changeLanguage(e.target.value.toLowerCase()); setLanguage(e.target.value) }} value={language} >
-                            {languages.map(i =>
-                                <MenuItem value={i.label}>{i.label}</MenuItem>
-                            )}
-                        </TextField>
+                        <Select options={themes} onChange={(e) => { setTheme(e.target.value); handleTheme(e.target.value); }} value={theme} />
+                        <Select options={languages} onChange={(e) => { i18next.changeLanguage(e.target.value.toLowerCase()); setLanguage(e.target.value) }} value={language} />
                     </div>
                 </div>
             </header>
         </>
     )
 }
-
 
 export default Header

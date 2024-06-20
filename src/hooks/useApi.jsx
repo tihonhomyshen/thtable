@@ -1,32 +1,52 @@
 import { useState } from 'react';
-import axios from 'axios';
 
-const useApi = (fetchCallback) => {
-  const [data, setData] = useState(null);
+import { getItemsSkinport } from '../services/getItemsSkinport';
+import { getItemsTM } from '../services/getItemsTM';
+
+export const SERVICE_NAMES = {
+  TM: 'TM',
+  SKINPORT: 'SKINPORT',
+}
+
+const SERVICES = {
+  [SERVICE_NAMES.TM]: getItemsTM,
+  [SERVICE_NAMES.SKINPORT]: getItemsSkinport,
+}
+
+const useApi = (initialService) => {
+  const [currentService, setCurrentService] = useState(initialService)
+
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [api, setApi] = useState(() => fetchCallback);
+  const [cachedParams, setCachedParams] = useState()
 
-  const fetchData = async (...args) => {
-    console.log(args, api)
-    setLoading(true);
-    try {
-      const data = await api(...args);
-      setData(data);
-      setError(null);
-    } catch (error) {
-      setError(error);
-      setData(null);
-    } finally {
-      setLoading(false);
+  const fetchData = async (params, newService) => {
+    if (newService || currentService) {
+      try {
+        const data = await SERVICES[newService || currentService](params ? { ...params } : { ...cachedParams })
+
+        setData(data)
+        setError(null)
+      } catch (e) {
+        setError(e)
+        setData([])
+      } finally {
+
+        if (params) {
+          setCachedParams(params)
+        }
+        setLoading(false)
+      }
     }
+  }
+
+  const switchApi = (service) => {
+    setCurrentService(service);
+    fetchData(undefined, service)
   };
 
-  const switchApi = (newApi) => {
-    setApi(newApi);
-  };
-
-  return { data, loading, error, fetchData, switchApi};
+  return { data, loading, error, fetchData, switchApi, service: currentService };
 };
 
 export default useApi
